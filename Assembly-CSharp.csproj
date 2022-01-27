@@ -36,10 +36,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Asset\Scripts\Managers\AudioManager.cs" />
+     <Compile Include="Assets\Asset\Scripts\Define.cs" />
      <Compile Include="Assets\Asset\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Asset\Scripts\Managers\InputManager.cs" />
      <Compile Include="Assets\Asset\Scripts\Managers\ResourceManager.cs" />
+     <Compile Include="Assets\Asset\Scripts\Managers\SoundManager.cs" />
      <Compile Include="Assets\Asset\Scripts\Managers\UIManager.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.34f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
