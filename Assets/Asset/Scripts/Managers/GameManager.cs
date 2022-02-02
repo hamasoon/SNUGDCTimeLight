@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,23 +7,20 @@ public class GameManager : MonoBehaviour
 {
     static GameManager instance;
 
-    [SerializeField]
-    public InputManager inputManager;
-    [SerializeField]
-    public ResourceManager resourceManager;
-    [SerializeField]
-    public UIManager uiManager;
-    [SerializeField]
-    public SoundManager soundManager;
-    [SerializeField]
-    GameObject gameManager;
+    [SerializeField] ResourceManager resourceManager;
+    [SerializeField] UIManager uiManager;
+    [SerializeField] SoundManager soundManager;
+    [SerializeField] GameObject gameManager;
+    [SerializeField] SubtitleManager subtitleManager;
 
-    public static InputManager InputManager {get {return instance.inputManager;} }
     public static ResourceManager ResourceManager {get {return instance.resourceManager;} }
     public static UIManager UIManager {get {return instance.uiManager;} }
     public static SoundManager SoundManager {get {return instance.soundManager;}}
+    public static SubtitleManager SubtitleManager {get {return instance.subtitleManager;}}
 
     public GameObject Player;
+
+    private List<string> Inventory = new List<string>();
 
     static public GameManager Instance{
         get{
@@ -49,5 +47,21 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void addInventory(string name)
+    {
+        Inventory.Add(name);    
+        Debug.Log(String.Format("아이템 {0} | 인벤토리에 들어왔음 {1}", name, Inventory.Contains(name)));
+    }
+
+    public bool isHaveItem(string name)
+    {
+        return Inventory.Contains(name);
+    }
+
+    public bool useItem(string name)
+    {   
+        return Inventory.Remove(name);
     }
 }
