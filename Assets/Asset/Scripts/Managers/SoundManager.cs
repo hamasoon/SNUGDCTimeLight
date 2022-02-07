@@ -21,7 +21,6 @@ public class SoundManager : MonoBehaviour
                 return;
             }
         }
-        Debug.Log(_name + "사운드가 SoundManager에 등록되지 않았습니다.");
     }
 
     public void PlayBGM(string _name)
@@ -31,7 +30,6 @@ public class SoundManager : MonoBehaviour
             audioSourceBFM.clip = bgmSounds[_name];
             audioSourceBFM.Play();
         }
-        Debug.Log(_name + "사운드가 SoundManager에 등록되지 않았습니다.");
     }
 
     public void StopAllSE()
@@ -48,6 +46,5 @@ public class SoundManager : MonoBehaviour
         {
             soundSources[_name].Stop();
         }
-        Debug.Log("재생 중인" + _name + "사운드가 없습니다. ");
     }
 }

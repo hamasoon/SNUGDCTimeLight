@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Camera myCamera;
     [SerializeField] GameObject cameraHolder;
     [SerializeField] bool enableBob = true;
-    [SerializeField, Range(0, 0.1f)] float bobAmplitude = 0.015f;
+    [SerializeField, Range(0, 10f)] float bobAmplitude = 5f;
     [SerializeField, Range(0, 30f)] float bobFrequency = 10f;
 
     private Vector3 startPos;
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 FootStepMotion()
     {
         Vector3 pos = Vector3.zero;
-        pos.y += Mathf.Sin(Time.time * bobFrequency) * bobAmplitude;
+        pos.y += Mathf.Sin(Time.time * bobFrequency) * (bobAmplitude/1000);
         pos.x = 0;
         return pos;
     }
@@ -80,6 +80,6 @@ public class PlayerController : MonoBehaviour
     private void ResetMotion()
     {
         if((myCamera.transform.localPosition - startPos).magnitude < 0.01f) return;
-        myCamera.transform.localPosition = Vector3.Lerp(myCamera.transform.localPosition, startPos, Time.deltaTime);
+        myCamera.transform.localPosition = Vector3.Lerp(myCamera.transform.localPosition, startPos, Time.deltaTime * 10);
     }
 }
