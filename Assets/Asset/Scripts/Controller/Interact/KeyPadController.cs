@@ -9,6 +9,7 @@ public class KeyPadController : MonoBehaviour
 {
     [SerializeField] TextMeshPro[] text = new TextMeshPro[4];
     [SerializeField] string password = "3812";//비밀번호
+    [SerializeField] DoorController LookDoor;
     private int count = 0;
     private bool waiting = false; //DeadLock 방지
 
@@ -25,7 +26,12 @@ public class KeyPadController : MonoBehaviour
             {
                 text[count].text = num.ToString(); 
                 if(!isCorrect()) StartCoroutine(checkCoolTime());
-                else waiting = true; //맞았을 경우 고정시키는 용도
+                else
+                {
+                    waiting = true; //맞았을 경우 고정시키는 용도
+                    LookDoor.disableLock();
+                    LookDoor.PlayAnimation();
+                }
                 count = 0;
             }
         }
