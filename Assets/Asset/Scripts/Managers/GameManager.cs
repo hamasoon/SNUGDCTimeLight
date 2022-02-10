@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
+        DOTween.Init(false, false, LogBehaviour.Default).SetCapacity(100, 20);
         //LoadingManager.Instance.OnSceneLoaded += Initialize;
     }
 
