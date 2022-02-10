@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class ClockController : MonoBehaviour
 {
-    [SerializeField] GameObject Panel;
-    [SerializeField] Clock pClock;
-    [SerializeField] Clock oClock;
+    private Clock clock;    
     private bool timelock = false;
+
+    void Start()
+    {
+        clock = gameObject.GetComponent<Clock>();
+    }
 
     void Update()
     {
-        if (Panel.activeSelf)
+        if(!GameManager.PlayerController.canMove)
         {
             if (!timelock)
             {
@@ -25,15 +28,12 @@ public class ClockController : MonoBehaviour
                 }
             }
         }
-        
-        oClock.minutes = pClock.minutes;
-        oClock.hour = pClock.hour;
     }
 
     IEnumerator ClockMovement(int wise)
     {
         timelock = true;
-        pClock.minutes += wise;
+        clock.minutes += wise;
         yield return new WaitForSeconds(0.1f);
         timelock = false;
     }

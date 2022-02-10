@@ -50,7 +50,12 @@ public class KeyPadController : MonoBehaviour
 
     IEnumerator checkCoolTime(){
         waiting = true;
-        yield return new WaitForSeconds(0.5f);
+        for(int i=0; i<3; i++){
+            foreach(TextMeshPro t in text)  t.enabled = false;
+            yield return new WaitForSeconds(0.1f);
+            foreach(TextMeshPro t in text)  t.enabled = true;
+            yield return new WaitForSeconds(0.1f);
+        }
         foreach(TextMeshPro t in text) t.text = "0";
         waiting = false;
     }

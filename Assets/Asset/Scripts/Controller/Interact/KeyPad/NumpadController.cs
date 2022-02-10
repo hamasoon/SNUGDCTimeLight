@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NumpadController : MonoBehaviour, IInteractable
+public class NumpadController : MonoBehaviour
 {
     private KeyPadController keyPadController;
     private bool isWorking = false;
@@ -12,7 +12,7 @@ public class NumpadController : MonoBehaviour, IInteractable
     {
         keyPadController = gameObject.GetComponentInParent<KeyPadController>();
     }
-    public void Interact()
+    public void OnMouseDown()
     {
         if (!isWorking)
         {
