@@ -50,12 +50,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Asset\Scripts\Controller\Interact\BookController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\Clock\ClockController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\DoorController.cs" />
+     <Compile Include="Assets\Asset\Scripts\Controller\Interact\FocusController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\GetItems.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyPad\KeyPadController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyPad\NumpadController.cs" />
-     <Compile Include="Assets\Asset\Scripts\Controller\Interact\PanelController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Outline\Outline.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Outline\OutlineDrawer.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Player\InteractController.cs" />
@@ -104,6 +105,14 @@
      <Compile Include="Assets\Package\LeanTween\Framework\LeanTest.cs" />
      <Compile Include="Assets\Package\LeanTween\Framework\LeanTween.cs" />
      <Compile Include="Assets\Package\LeanTween\Framework\LeanTweenExt.cs" />
+     <Compile Include="Assets\Package\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
+     <Compile Include="Assets\Package\Plugins\Demigiant\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
+     <Compile Include="Assets\Package\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
+     <Compile Include="Assets\Package\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+     <Compile Include="Assets\Package\Plugins\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
+     <Compile Include="Assets\Package\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
+     <Compile Include="Assets\Package\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+     <Compile Include="Assets\Package\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
      <Compile Include="Assets\Package\SerializableDictionary\Example\SerializableDictionaryExample.cs" />
      <Compile Include="Assets\Package\SerializableDictionary\Example\UserSerializableDictionaries.cs" />
      <Compile Include="Assets\Package\SerializableDictionary\SerializableDictionary.cs" />
@@ -111,6 +120,7 @@
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Package\LeanTween\ReadMe.txt" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+     <None Include="Assets\Asset\Resources\Shader\BlurEffectShader.shader" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
      <None Include="Assets\Package\LeanTween\License.txt" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
@@ -129,6 +139,7 @@
      <None Include="Assets\Package\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\Package\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\Package\Plugins\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\Package\QuickOutline\Resources\Shaders\OutlineFill.shader" />
@@ -374,6 +385,9 @@
  </Reference>
  <Reference Include="UnityEditor">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Assets/Package/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
