@@ -12,11 +12,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] SoundManager soundManager;
     [SerializeField] GameObject gameManager;
     [SerializeField] SubtitleManager subtitleManager;
+    [SerializeField] PlayerController playerController;
 
     public static ResourceManager ResourceManager {get {return instance.resourceManager;} }
     public static UIManager UIManager {get {return instance.uiManager;} }
     public static SoundManager SoundManager {get {return instance.soundManager;}}
     public static SubtitleManager SubtitleManager {get {return instance.subtitleManager;}}
+    public static PlayerController PlayerController {get {return instance.playerController;}}
 
     public GameObject Player;
 

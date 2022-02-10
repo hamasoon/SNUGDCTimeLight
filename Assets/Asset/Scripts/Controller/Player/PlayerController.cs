@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public bool canMove = true;
+    public bool canCameraMove = true;
     [Range(0, 30)] public float mySpeed = 15f;
     [Range(0, 5)] public float vSpeed = 2f;
     [Range(0, 5)] public float hSpeed = 2f;
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
         yaw += hSpeed * Input.GetAxis("Mouse X");
         pitch -= vSpeed * Input.GetAxis("Mouse Y");
 
-        cameraHolder.transform.eulerAngles = new Vector3(pitch, yaw, 0f);
+        if(canCameraMove) cameraHolder.transform.eulerAngles = new Vector3(pitch, yaw, 0f);
 
         if(canMove){
             if(input == Vector3.zero) enableBob = false;
