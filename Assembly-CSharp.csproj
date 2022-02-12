@@ -69,6 +69,8 @@
      <Compile Include="Assets\Asset\Scripts\Managers\UIManager.cs" />
      <Compile Include="Assets\Asset\Scripts\Utils\Define.cs" />
      <Compile Include="Assets\Asset\Scripts\Utils\Interfaces.cs" />
+     <Compile Include="Assets\FlashLight\Shader\Blit\MyBlitFeature.cs" />
+     <Compile Include="Assets\FlashLight\Shader\Blit\MyBlitRenderPass.cs" />
      <Compile Include="Assets\Package\Book-Page Curl\scripts\AutoFlip.cs" />
      <Compile Include="Assets\Package\Book-Page Curl\scripts\Book.cs" />
      <Compile Include="Assets\Package\Clock\Scripts\Clock.cs" />
@@ -146,62 +148,62 @@
      <None Include="Assets\Package\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_Sprite.shader" />
- <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="Unity.PlasticSCM.Editor">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
  <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Timeline.Editor">
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Shaders">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VSCode.Editor">
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Editor">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Runtime">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro.Editor">
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Runtime">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Editor">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Timeline">
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Rider.Editor">
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VisualStudio.Editor">
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ShaderGraph.Editor">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PlasticSCM.Editor">
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -387,7 +389,7 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Assets/Package/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+ <HintPath>D:/GitHub/SNUGDCTimeLight/Assets/Package/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
