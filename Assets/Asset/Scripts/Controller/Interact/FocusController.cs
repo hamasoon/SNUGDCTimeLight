@@ -13,7 +13,7 @@ public class FocusController : MonoBehaviour, IInteractable
     private Camera MainCamera;
     private Vector3 originPos;
     private Vector3 originAngle;
-    private bool isFocused = false;
+    public bool isFocused = false;
     
     void Start()
     {
