@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class FocusController : MonoBehaviour, IInteractable
 {
-    [SerializeField] private GameObject aim;
     [SerializeField] private bool useMousePuzzle = false;
     [SerializeField] private Vector3 loc;
     [SerializeField] private Vector3 rotateAngle;
@@ -13,6 +12,8 @@ public class FocusController : MonoBehaviour, IInteractable
     private Camera MainCamera;
     private Vector3 originPos;
     private Vector3 originAngle;
+    private float originHSpeed;
+    private float originVSpeed;
     public bool isFocused = false;
     
     void Start()
@@ -38,11 +39,16 @@ public class FocusController : MonoBehaviour, IInteractable
 
     IEnumerator ClosedIn()
     {
-        aim.SetActive(false);
         originPos = MainCamera.transform.position;
         originAngle = MainCamera.transform.eulerAngles;
+
         GameManager.PlayerController.canMove = false;
         GameManager.PlayerController.canCameraMove = false;
+
+        originHSpeed = GameManager.PlayerController.hSpeed;
+        originVSpeed = GameManager.PlayerController.vSpeed;
+        GameManager.PlayerController.hSpeed = 1f;
+        GameManager.PlayerController.vSpeed = 1f;
 
         Vector3 target = transform.position + loc;
 
@@ -57,13 +63,16 @@ public class FocusController : MonoBehaviour, IInteractable
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        
+        GameManager.PlayerController.canCameraMove = true;
         isFocused = true;
+
+        gameObject.GetComponent<Collider>().enabled = false;
     }
 
     IEnumerator ClosedOut()
     {
-
+        isFocused = false;
+        GameManager.PlayerController.canCameraMove = false;
         if (useMousePuzzle)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -74,10 +83,11 @@ public class FocusController : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(transTime+0.5f);
         MainCamera.transform.parent.transform.DORotate(originAngle, transTime);
 
+        GameManager.PlayerController.hSpeed = originHSpeed;
+        GameManager.PlayerController.vSpeed = originVSpeed;
+
         GameManager.PlayerController.canMove = true;
         GameManager.PlayerController.canCameraMove = true;
-        aim.SetActive(true);
-
-        isFocused = false;
+        gameObject.GetComponent<Collider>().enabled = false;
     }
 }
