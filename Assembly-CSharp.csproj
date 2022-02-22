@@ -169,8 +169,14 @@
  <Reference Include="Unity.RenderPipelines.Core.Runtime">
  <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Recorder.Editor">
+ <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Recorder">
+ <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Runtime">
  <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
@@ -190,6 +196,9 @@
  <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
  <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Recorder.Base">
+ <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.Recorder.Base.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
  <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
@@ -207,15 +216,6 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Recorder.Editor">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Recorder">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Recorder.Base">
- <HintPath>C:/Users/Alohafactory/Desktop/Github/SNUGDCTimeLight/Library/ScriptAssemblies/Unity.Recorder.Base.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.35f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

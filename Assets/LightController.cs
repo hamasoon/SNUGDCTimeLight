@@ -13,6 +13,8 @@ public class LightController : MonoBehaviour
     private Transform spotLightT;
     [SerializeField] private Light spotLight;
 
+    public bool LightFixed => lightFixed;
+
     private void Awake()
     {
         spotLightT = spotLight.transform;
