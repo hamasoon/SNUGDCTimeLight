@@ -1,18 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class UpDownButtonController : MonoBehaviour
+public enum UpDown
 {
-    [SerializeField] List<int> Password;
+    Up, Down
+}
 
+public class UpDownButtonController : MonoBehaviour, IInteractable
+{
+    [SerializeField] private Text number;
+    private UpDownController upDownController;
+    public UpDown ways;
+    public int num;
+    
     void Start()
     {
-        
+        upDownController = gameObject.GetComponentInParent<UpDownController>();
     }
-
-    void Update()
+    
+    public void Interact()
     {
+        if (num == 0) return;
+        else if (num == 9) return;
+
+        switch (ways)
+        {
+            case UpDown.Up:
+                num++;
+                break;
+            case UpDown.Down:
+                num--;
+                break;
+        }
+
+        upDownController.Check();
         
+        number.text = num.ToString();
     }
 }
