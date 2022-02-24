@@ -2,9 +2,6 @@
 
 public class PlayerController : MonoBehaviour
 {
-    public LightController LightController => lightController;
-    public InteractController InteractController => interactController;
-    
     public bool canMove = true;
     public bool canCameraMove = true;
     [Range(0, 30)] public float mySpeed = 15f;
@@ -16,6 +13,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool enableBob = true;
     [SerializeField, Range(0, 10f)] private float bobAmplitude = 5f;
     [SerializeField, Range(0, 30f)] private float bobFrequency = 10f;
+
+    public bool lightActive;
+    public bool lightFixed;
+    public Vector3 lightOrigin;
+    public Vector3 lightDirection;
 
     private Vector3 startPos;
 

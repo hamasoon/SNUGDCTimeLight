@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 
 public class LightController : MonoBehaviour
@@ -12,9 +9,6 @@ public class LightController : MonoBehaviour
 
     private Transform spotLightParent;
     private Transform spotLightT;
-    
-    private bool lightActive;
-    private bool lightFixed;
 
     private int doTweenId;
     
@@ -45,7 +39,7 @@ public class LightController : MonoBehaviour
             EnableLight();
         }
 
-        if (lightActive)
+        if (playerController.lightActive)
         {
             if (Input.GetMouseButtonUp(1))
             {
@@ -60,12 +54,15 @@ public class LightController : MonoBehaviour
 
         cameraT.position = mainCamera.transform.position + cameraPositionOffset;
         cameraT.rotation = mainCamera.transform.rotation;
+
+        playerController.lightOrigin = spotLightT.position;
+        playerController.lightDirection = spotLightT.forward;
     }
 
     private void EnableLight()
     {
         UnfixLight();
-        lightActive = true;
+        playerController.lightActive = true;
 
         spotLight.enabled = true;
 
@@ -82,7 +79,7 @@ public class LightController : MonoBehaviour
 
     private void DisableLight()
     {
-        lightActive = false;
+        playerController.lightActive = false;
 
         DOTween.Kill(doTweenId);
         doTweenId = DOTween.To(() => spotLight.spotAngle, x =>
@@ -95,7 +92,7 @@ public class LightController : MonoBehaviour
 
     private void UnfixLight()
     {
-        lightFixed = false;
+        playerController.lightFixed = false;
 
         spotLightT.SetParent(spotLightParent);
         spotLightT.localPosition = Vector3.zero;
@@ -104,8 +101,8 @@ public class LightController : MonoBehaviour
 
     private void FixLight()
     {
-        lightActive = false;
-        lightFixed = true;
+        playerController.lightActive = false;
+        playerController.lightFixed = true;
 
         spotLightT.parent = null;
     }

@@ -3,15 +3,14 @@ using UnityEngine;
 public class InteractController : MonoBehaviour
 {
     private PlayerController playerController;
-    
+
     private Camera mainCamera;
     private Vector3 screenCenter;
     [SerializeField, Range(0f, 15f)] float interactRange = 5f;
 
-    [SerializeField] private Transform spotlightT;
     [SerializeField] private Transform copyCameraT;
     [SerializeField] private LayerMask playerLayerMask;
-    
+
     public void Initialize(PlayerController pc)
     {
         playerController = pc;
@@ -21,25 +20,29 @@ public class InteractController : MonoBehaviour
 
     public void ManagedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
 
-            if (Interact(ray) || !lightController.LightFixed) return;
-            
+            if (Interact(ray) || !playerController.lightFixed) return;
+
             if (!Physics.Raycast(ray, out RaycastHit hit, interactRange)) return;
-            
-            Vector3 hitPosition = hit.point;
-            float distanceFromLight = Vector3.Distance(spotlightT.position, hitPosition);
 
-            if (!(Vector3.Angle(spotlightT.forward, hitPosition - spotlightT.position) <= 30f)) return;
-            if (Physics.Raycast(new Ray(spotlightT.position, hitPosition - spotlightT.position), out RaycastHit hita,
+            Vector3 hitPosition = hit.point;
+
+            Vector3 lightPosition = playerController.lightOrigin;
+            Vector3 lightDirection = playerController.lightDirection;
+
+            float distanceFromLight = Vector3.Distance(lightPosition, hitPosition);
+
+            if (!(Vector3.Angle(lightDirection, hitPosition - lightPosition) <= 30f)) return;
+            if (Physics.Raycast(new Ray(lightPosition, hitPosition - lightPosition), out RaycastHit hita,
                 distanceFromLight * 0.99f, ~playerLayerMask))
             {
                 Debug.Log(hita.collider.gameObject.name);
                 return;
             }
-            
+
             ray = new Ray(copyCameraT.position, copyCameraT.forward);
             Interact(ray);
         }
@@ -48,11 +51,12 @@ public class InteractController : MonoBehaviour
     private bool Interact(Ray ray)
     {
         bool rayHit = false;
-        
-        if (Physics.Raycast(ray, out var hit, interactRange, 1 << LayerMask.NameToLayer("Interactable")))//Interactable Layer를 가진 요소만 Raycast되도록
+
+        if (Physics.Raycast(ray, out var hit, interactRange,
+            1 << LayerMask.NameToLayer("Interactable"))) //Interactable Layer를 가진 요소만 Raycast되도록
         {
             rayHit = true;
-            
+
             IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
             GameManager.SubtitleManager.showSubtitle();
             interactable.Interact();
