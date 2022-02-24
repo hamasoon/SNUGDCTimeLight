@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NumpadController : MonoBehaviour
+public class NumpadController : MonoBehaviour, IInteractable
 {
     private KeyPadController keyPadController;
     private bool isWorking = false;
     public int Num;
 
-    void Awake()
+    void Start()
     {
         keyPadController = gameObject.GetComponentInParent<KeyPadController>();
     }
-    public void OnMouseDown()
+    public void Interact()
     {
-        if (!isWorking)
+        if (!isWorking && gameObject.GetComponentInParent<FocusController>().isFocused)
         {
             keyPadController.addString(Num);
             StartCoroutine(cooltime());

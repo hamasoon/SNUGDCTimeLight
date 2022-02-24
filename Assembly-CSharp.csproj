@@ -53,11 +53,16 @@
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\BookController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\Clock\ClockController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\Cylinder\CylinderController.cs" />
+     <Compile Include="Assets\Asset\Scripts\Controller\Interact\Cylinder\PanelController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\DoorController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\FocusController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\GetItems.cs" />
+     <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyCardController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyPad\KeyPadController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyPad\NumpadController.cs" />
+     <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyPad\UpDownButtonController.cs" />
+     <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyPad\UpDownController.cs" />
+     <Compile Include="Assets\Asset\Scripts\Controller\Interact\LeverController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Outline\Outline.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Outline\OutlineDrawer.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Player\InteractController.cs" />
@@ -131,6 +136,7 @@
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
      <None Include="Assets\Package\QuickOutline\Resources\Shaders\OutlineMask.shader" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\Asset\Resources\Shader\ToonShader.shader" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\Package\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
