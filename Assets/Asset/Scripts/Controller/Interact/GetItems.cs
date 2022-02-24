@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GetItems : MonoBehaviour, IGetable
 {
@@ -18,22 +16,25 @@ public class GetItems : MonoBehaviour, IGetable
 
     void Update()
     {
-        if(isGot){   
+        if (isGot)
+        {
             Vector3 moveDir = pTransform.localPosition - transform.localPosition;
-            if(moveDir.magnitude < deletingDist) Destroy(gameObject);
+            if (moveDir.magnitude < deletingDist) Destroy(gameObject);
             transform.localPosition += moveDir * speed * Time.deltaTime;
         }
     }
 
     public void Interact()
     {
-        if(!isGot){
+        if (!isGot)
+        {
             isGot = true;
-            getItem();
+            GetItem();
         }
     }
 
-    public void getItem(){
-        GameManager.Instance.addInventory(itemName);
+    public void GetItem()
+    {
+        GameManager.Instance.AddInventory(itemName);
     }
 }

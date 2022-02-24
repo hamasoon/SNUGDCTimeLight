@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
-    static GameManager instance;
+    private static GameManager instance;
 
     [SerializeField] ResourceManager resourceManager;
     [SerializeField] UIManager uiManager;
@@ -15,56 +15,55 @@ public class GameManager : MonoBehaviour
     [SerializeField] SubtitleManager subtitleManager;
     [SerializeField] PlayerController playerController;
 
-    public static ResourceManager ResourceManager {get {return instance.resourceManager;} }
-    public static UIManager UIManager {get {return instance.uiManager;} }
-    public static SoundManager SoundManager {get {return instance.soundManager;}}
-    public static SubtitleManager SubtitleManager {get {return instance.subtitleManager;}}
-    public static PlayerController PlayerController {get {return instance.playerController;}}
+    public static ResourceManager ResourceManager => instance.resourceManager;
+    public static UIManager UIManager => instance.uiManager;
+    public static SoundManager SoundManager => instance.soundManager;
+    public static SubtitleManager SubtitleManager => instance.subtitleManager;
+    public static PlayerController PlayerController => instance.playerController;
 
     public GameObject Player;
 
     private List<string> Inventory = new List<string>();
 
-    static public GameManager Instance{
-        get{
-            if(instance == null){
+    public static GameManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
                 return null;
             }
+
             return instance;
         }
     }
 
-    void Awake() {
-        if(instance == null){
-            instance  = gameManager.GetComponent<GameManager>();
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = gameManager.GetComponent<GameManager>();
         }
         else
         {
             Destroy(this.gameObject);
         }
+
         DOTween.Init(false, false, LogBehaviour.Default).SetCapacity(100, 20);
         //LoadingManager.Instance.OnSceneLoaded += Initialize;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void AddInventory(string id)
     {
-        
+        Inventory.Add(id);
+        Debug.Log(String.Format("아이템 {0} | 인벤토리에 들어왔음 {1}", id, Inventory.Contains(id)));
     }
-
-    public void addInventory(string name)
+    public bool HasItem(string id)
     {
-        Inventory.Add(name);    
-        Debug.Log(String.Format("아이템 {0} | 인벤토리에 들어왔음 {1}", name, Inventory.Contains(name)));
+        return Inventory.Contains(id);
     }
-
-    public bool isHaveItem(string name)
+    public bool UseItem(string id)
     {
-        return Inventory.Contains(name);
-    }
-
-    public bool useItem(string name)
-    {   
-        return Inventory.Remove(name);
+        return Inventory.Remove(id);
     }
 }

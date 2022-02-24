@@ -1,23 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BookController : MonoBehaviour, IInteractable
 {
-    [SerializeField] GameObject Book;
+    [SerializeField] private GameObject book;
 
-    void Start()
+    private void Start()
     {
-        Book.SetActive(false);
+        book.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void Update()
     {
-        if(Book.activeSelf){
-            if(Input.GetKeyDown(KeyCode.Escape))
+        if (book.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Book.SetActive(false);
+                book.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 GameManager.PlayerController.canMove = true;
@@ -26,8 +24,9 @@ public class BookController : MonoBehaviour, IInteractable
         }
     }
 
-    public void Interact(){
-        Book.SetActive(true);
+    public void Interact()
+    {
+        book.SetActive(true);
         GameManager.PlayerController.canMove = false;
         GameManager.PlayerController.canCameraMove = false;
         Cursor.lockState = CursorLockMode.None;
