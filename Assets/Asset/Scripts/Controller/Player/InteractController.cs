@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class InteractController : MonoBehaviour
 {
@@ -8,6 +8,10 @@ public class InteractController : MonoBehaviour
     private Vector3 screenCenter;
     [SerializeField, Range(0f, 15f)] float interactRange = 5f;
 
+    [SerializeField] private Transform spotlightT;
+    [SerializeField] private Transform copyCameraT;
+    [SerializeField] private LayerMask playerLayerMask;
+    
     public void Initialize(PlayerController pc)
     {
         playerController = pc;
@@ -17,21 +21,43 @@ public class InteractController : MonoBehaviour
 
     public void ManagedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            Ray ray = mainCamera.ScreenPointToRay(new Vector3(mainCamera.pixelWidth / 2, mainCamera.pixelHeight / 2)); //카메라 정중앙
+            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
-            if (!Physics.Raycast(ray, out var hit, interactRange,
-                1 << LayerMask.NameToLayer("Interactable"))) return;
+            if (Interact(ray) || !lightController.LightFixed) return;
+            
+            if (!Physics.Raycast(ray, out RaycastHit hit, interactRange)) return;
+            
+            Vector3 hitPosition = hit.point;
+            float distanceFromLight = Vector3.Distance(spotlightT.position, hitPosition);
 
-            GameManager.SubtitleManager.showSubtitle();
-            IInteractable script = hit.collider.gameObject.GetComponent<IInteractable>();
-            script.Interact();
+            if (!(Vector3.Angle(spotlightT.forward, hitPosition - spotlightT.position) <= 30f)) return;
+            if (Physics.Raycast(new Ray(spotlightT.position, hitPosition - spotlightT.position), out RaycastHit hita,
+                distanceFromLight * 0.99f, ~playerLayerMask))
+            {
+                Debug.Log(hita.collider.gameObject.name);
+                return;
+            }
+            
+            ray = new Ray(copyCameraT.position, copyCameraT.forward);
+            Interact(ray);
         }
     }
 
-    private void CheckInteractable()
+    private bool Interact(Ray ray)
     {
+        bool rayHit = false;
         
+        if (Physics.Raycast(ray, out var hit, interactRange, 1 << LayerMask.NameToLayer("Interactable")))//Interactable Layer를 가진 요소만 Raycast되도록
+        {
+            rayHit = true;
+            
+            IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+            GameManager.SubtitleManager.showSubtitle();
+            interactable.Interact();
+        }
+
+        return rayHit;
     }
 }
