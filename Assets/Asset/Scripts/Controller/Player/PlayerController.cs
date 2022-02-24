@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public bool lightFixed;
     public Vector3 lightOrigin;
     public Vector3 lightDirection;
+    public Vector3 cameraOrigin;
+    public Vector3 cameraDirection;
 
     private Vector3 startPos;
 

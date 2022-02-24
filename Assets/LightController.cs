@@ -57,6 +57,9 @@ public class LightController : MonoBehaviour
 
         playerController.lightOrigin = spotLightT.position;
         playerController.lightDirection = spotLightT.forward;
+
+        playerController.cameraOrigin = cameraT.position;
+        playerController.cameraDirection = cameraT.forward;
     }
 
     private void EnableLight()

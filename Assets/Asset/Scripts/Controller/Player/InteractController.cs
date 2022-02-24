@@ -7,8 +7,7 @@ public class InteractController : MonoBehaviour
     private Camera mainCamera;
     private Vector3 screenCenter;
     [SerializeField, Range(0f, 15f)] float interactRange = 5f;
-
-    [SerializeField] private Transform copyCameraT;
+    
     [SerializeField] private LayerMask playerLayerMask;
 
     public void Initialize(PlayerController pc)
@@ -43,7 +42,7 @@ public class InteractController : MonoBehaviour
                 return;
             }
 
-            ray = new Ray(copyCameraT.position, copyCameraT.forward);
+            ray = new Ray(playerController.cameraOrigin, playerController.cameraDirection);
             Interact(ray);
         }
     }
