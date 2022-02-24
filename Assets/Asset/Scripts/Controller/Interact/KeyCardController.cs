@@ -12,7 +12,7 @@ public class KeyCardController : MonoBehaviour, IInteractable
     public void Interact()
     {
         if (Check())
-            if(GameManager.Instance.useItem(KeyCardName))
+            if(GameManager.Instance.UseItem(KeyCardName))
                 doorController.disableLock();
     }
 

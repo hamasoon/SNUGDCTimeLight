@@ -25,7 +25,7 @@ public class DoorController : MonoBehaviour, IInteractable
         }
         else
         {
-            if(GameManager.Instance.useItem(KeyName))
+            if(GameManager.Instance.UseItem(KeyName))
                 disableLock();
         }
     }
