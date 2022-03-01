@@ -7,7 +7,7 @@ using UnityEngine.TextCore;
 public class CylinderController : MonoBehaviour
 {
     //[SerializeField] List<GameObject> Panel;
-    //[SerializeField] DoorController LookDoor;
+    [SerializeField] DoorController LookDoor;
     [SerializeField] List<int> Password = new List<int>(4);
     
     private List<float> PanelAngles = new List<float>() {0f, 90f, 180f, 270f};
@@ -31,7 +31,7 @@ public class CylinderController : MonoBehaviour
         }
         
         timelock = true;
-        //LookDoor.disableLock();
+        LookDoor.disableLock();
     } 
 
     IEnumerator SpinningCylinder(GameObject go, int num)

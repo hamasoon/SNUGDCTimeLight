@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Vector3 input = cameraHolder.transform.right * Input.GetAxisRaw("Horizontal") +
-                        cameraHolder.transform.forward * Input.GetAxisRaw("Vertical");
+            cameraHolder.transform.forward * Input.GetAxisRaw("Vertical");
         Vector3 moveDir = transform.TransformDirection(input.normalized);
         
         if (canCameraMove)

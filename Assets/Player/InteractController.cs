@@ -56,7 +56,6 @@ public class InteractController : MonoBehaviour
             rayHit = true;
 
             IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
-            GameManager.SubtitleManager.showSubtitle();
             interactable.Interact();
         }
 
