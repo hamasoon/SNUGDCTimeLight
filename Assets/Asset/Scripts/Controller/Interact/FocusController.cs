@@ -9,6 +9,7 @@ public class FocusController : MonoBehaviour, IInteractable
     [SerializeField] private Vector3 loc;
     [SerializeField] private Vector3 rotateAngle;
     [SerializeField, Range(0f, 3.0f)] private float transTime = 1f;
+    
     private Camera MainCamera;
     private Vector3 originPos;
     private Vector3 originAngle;
@@ -53,7 +54,6 @@ public class FocusController : MonoBehaviour, IInteractable
         Vector3 target = transform.position + loc;
 
         MainCamera.transform.parent.transform.DOMove(target, transTime);
-        //Debug.Log(Quaternion.ToEulerAngles(Quaternion.LookRotation(new Vector3(originPos-transform.position))));
         MainCamera.transform.parent.transform.DORotate(rotateAngle, transTime);
 
         yield return new WaitForSeconds(transTime+0.5f);
@@ -80,8 +80,9 @@ public class FocusController : MonoBehaviour, IInteractable
         }
 
         MainCamera.transform.parent.transform.DOMove(originPos, transTime);
-        yield return new WaitForSeconds(transTime+0.5f);
         MainCamera.transform.parent.transform.DORotate(originAngle, transTime);
+        
+        yield return new WaitForSeconds(transTime+0.5f);
 
         GameManager.PlayerController.hSpeed = originHSpeed;
         GameManager.PlayerController.vSpeed = originVSpeed;

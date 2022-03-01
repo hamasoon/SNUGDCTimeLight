@@ -55,11 +55,18 @@ public class PlayerController : MonoBehaviour
         Vector3 input = cameraHolder.transform.right * Input.GetAxisRaw("Horizontal") +
                         cameraHolder.transform.forward * Input.GetAxisRaw("Vertical");
         Vector3 moveDir = transform.TransformDirection(input.normalized);
-
-        yaw += hSpeed * Input.GetAxis("Mouse X");
-        pitch -= vSpeed * Input.GetAxis("Mouse Y");
-
-        if (canCameraMove) cameraHolder.transform.eulerAngles = new Vector3(pitch, yaw, 0f);
+        
+        if (canCameraMove)
+        {
+            yaw += hSpeed * Input.GetAxis("Mouse X");
+            pitch -= vSpeed * Input.GetAxis("Mouse Y");
+            cameraHolder.transform.eulerAngles = new Vector3(pitch, yaw, 0f);
+        }
+        else
+        {
+            yaw = cameraHolder.transform.eulerAngles.y;
+            pitch = cameraHolder.transform.eulerAngles.x;
+        }
 
         if (canMove)
         {

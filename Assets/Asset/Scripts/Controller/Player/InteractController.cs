@@ -35,10 +35,9 @@ public class InteractController : MonoBehaviour
             float distanceFromLight = Vector3.Distance(lightPosition, hitPosition);
 
             if (!(Vector3.Angle(lightDirection, hitPosition - lightPosition) <= 30f)) return;
-            if (Physics.Raycast(new Ray(lightPosition, hitPosition - lightPosition), out RaycastHit hita,
+            if (Physics.Raycast(new Ray(lightPosition, hitPosition - lightPosition),
                 distanceFromLight * 0.99f, ~playerLayerMask))
             {
-                Debug.Log(hita.collider.gameObject.name);
                 return;
             }
 
