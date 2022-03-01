@@ -30,7 +30,7 @@ public class KeyPadController : MonoBehaviour
                 {
                     waiting = true; //맞았을 경우 고정시키는 용도
                     LookDoor.disableLock();
-                    LookDoor.PlayAnimation();
+                    LookDoor.Interact();
                 }
                 count = 0;
             }

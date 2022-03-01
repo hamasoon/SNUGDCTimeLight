@@ -19,7 +19,7 @@ public class SubtitleManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void SetSubtitle(string key)
+    private void SetSubtitle(string key)
     {
         text.text = subtitles[key];
     }
@@ -34,9 +34,10 @@ public class SubtitleManager : MonoBehaviour
         text.transform.position = subsLocation["origin"];
     }
 
-    public void showSubtitle()
+    public void showSubtitle(string key)
     {
         if(!lockSubtitle){
+            SetSubtitle(key);
             StartCoroutine(CoFadeInandOut(fadeTime));
         }
     }

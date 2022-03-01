@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour, IInteractable
 {
-    private Animator doorAnim;
+    [SerializeField] GameObject AnotherDoor;
     [SerializeField] bool isLock = false;
-    private bool isWorking = false;
     [SerializeField] string KeyName = "SampleKey";
+    private bool isWorking = false;
     public bool open = false;
-    public float seconds = 3.0f;
+    public float seconds = 0.7f;
+    private float origin;
 
     void Awake()
     {
-        doorAnim = gameObject.GetComponentInChildren<Animator>();
+        origin = transform.eulerAngles.y;
+        Debug.Log(origin);
     }
 
     public void Interact()
@@ -21,24 +23,28 @@ public class DoorController : MonoBehaviour, IInteractable
         if(!isLock)
         {
             if(!isWorking)
-                PlayAnimation();
+                StartCoroutine(DoorCorourtine());
         }
         else
         {
             if(GameManager.Instance.UseItem(KeyName))
                 disableLock();
+            else
+                GameManager.SubtitleManager.showSubtitle("Lock");
         }
     }
 
-    public void PlayAnimation()
+    private void PlayAnimation()
     {
         if(!open)
         {
-            doorAnim.Play("DoorOpen", 0, 0.0f);
+            LeanTween.rotateY(gameObject, origin - 90, seconds).setEase(LeanTweenType.easeInSine);
+            LeanTween.rotateY(AnotherDoor, origin - 90, seconds).setEase(LeanTweenType.easeInSine);
         }
         else
         {
-            doorAnim.Play("DoorClose", 0, 0.0f);
+            LeanTween.rotateY(gameObject, origin, seconds).setEase(LeanTweenType.easeInSine);
+            LeanTween.rotateY(AnotherDoor, origin, seconds).setEase(LeanTweenType.easeInSine);
         }
         open = !open;
     }
@@ -56,9 +62,8 @@ public class DoorController : MonoBehaviour, IInteractable
     IEnumerator DoorCorourtine()
     {
         isWorking = !isWorking;
-        yield return new WaitForSeconds(seconds);
-
         PlayAnimation();
+        yield return new WaitForSeconds(seconds);
         isWorking = !isWorking;
     }
 }

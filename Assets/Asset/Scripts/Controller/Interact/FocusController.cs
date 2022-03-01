@@ -89,6 +89,6 @@ public class FocusController : MonoBehaviour, IInteractable
 
         GameManager.PlayerController.canMove = true;
         GameManager.PlayerController.canCameraMove = true;
-        gameObject.GetComponent<Collider>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = true;
     }
 }
