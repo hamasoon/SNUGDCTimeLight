@@ -65,8 +65,6 @@
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\LeverController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Outline\Outline.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Outline\OutlineDrawer.cs" />
-     <Compile Include="Assets\Asset\Scripts\Controller\Player\InteractController.cs" />
-     <Compile Include="Assets\Asset\Scripts\Controller\Player\PlayerController.cs" />
      <Compile Include="Assets\Asset\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Asset\Scripts\Managers\InputManager.cs" />
      <Compile Include="Assets\Asset\Scripts\Managers\ResourceManager.cs" />
@@ -125,6 +123,8 @@
      <Compile Include="Assets\Package\SerializableDictionary\Example\SerializableDictionaryExample.cs" />
      <Compile Include="Assets\Package\SerializableDictionary\Example\UserSerializableDictionaries.cs" />
      <Compile Include="Assets\Package\SerializableDictionary\SerializableDictionary.cs" />
+     <Compile Include="Assets\Player\InteractController.cs" />
+     <Compile Include="Assets\Player\PlayerController.cs" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Package\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Package\LeanTween\ReadMe.txt" />
