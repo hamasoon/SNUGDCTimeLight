@@ -248,7 +248,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ad780e00b906ae4bb7b60530c3e501d, type: 2}
+  - {fileID: 2100000, guid: fc5bf9f9075224fdea630e52e2e5a419, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -450,7 +450,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ad780e00b906ae4bb7b60530c3e501d, type: 2}
+  - {fileID: 2100000, guid: fc5bf9f9075224fdea630e52e2e5a419, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LookDoor: {fileID: 0}
-  Password: 01000000030000000200000000000000
+  Password: 02000000010000000300000001000000
 --- !u!1 &1336918957285627655
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +637,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ad780e00b906ae4bb7b60530c3e501d, type: 2}
+  - {fileID: 2100000, guid: fc5bf9f9075224fdea630e52e2e5a419, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -933,7 +933,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ad780e00b906ae4bb7b60530c3e501d, type: 2}
+  - {fileID: 2100000, guid: fc5bf9f9075224fdea630e52e2e5a419, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
