@@ -1,19 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum UpDown
 {
-    Up, Down
+    Up = 1, Down = -1
 }
 
 public class UpDownButtonController : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Text number;
     private UpDownController upDownController;
+    private bool isWorking = false;
     public UpDown ways;
-    public int num;
+    public int index;
     
     void Start()
     {
@@ -22,21 +21,21 @@ public class UpDownButtonController : MonoBehaviour, IInteractable
     
     public void Interact()
     {
-        if (num == 0) return;
-        else if (num == 9) return;
-
-        switch (ways)
+        if(!isWorking)
         {
-            case UpDown.Up:
-                num++;
-                break;
-            case UpDown.Down:
-                num--;
-                break;
+            StartCoroutine(ClickButton());
         }
+    }
 
-        upDownController.Check();
-        
-        number.text = num.ToString();
+    IEnumerator ClickButton()
+    {
+        isWorking = !isWorking;
+
+        upDownController.UpDownButtonInput(index, (int)ways);
+        LeanTween.moveLocalZ(gameObject, 0, 0.25f);
+        LeanTween.moveLocalZ(gameObject, -1.5f, 0.25f).setDelay(0.25f);
+        yield return new WaitForSeconds(0.5f);
+
+        isWorking = !isWorking;
     }
 }

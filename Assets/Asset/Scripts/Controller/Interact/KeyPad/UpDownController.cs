@@ -1,20 +1,44 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UpDownController : MonoBehaviour
 {
     [SerializeField] private List<int> Password;
-    [SerializeField] private List<UpDownButtonController> buttons;
     [SerializeField] private DoorController doorController;
+    [SerializeField] private List<TextMeshPro> Texts;
+    private List<int> Input = Enumerable.Repeat(0, 3).ToList();
+
+    private bool isClear = false;
 
     public void Check()
     {
         for (int i = 0; i < Password.Count; i++)
         {
-            if (Password[i] != buttons[i].num) return;
+            if (Password[i] != Input[i]) return;
         }
         
+        isClear = !isClear;
         doorController.disableLock();
+    }
+
+    public void UpDownButtonInput(int idx, int ways)
+    {
+        if(!isClear)
+        {
+            Debug.Log(1);
+            if (Input[idx] == 0 && ways == -1) return;
+            else if (Input[idx] == 9 && ways == 1) return;
+            Debug.Log(1);
+
+            Input[idx] += ways;
+            Texts[idx].text = Input[idx].ToString();
+            
+            Check();
+            
+            Debug.Log(Texts[idx]);
+        }
     }
 }

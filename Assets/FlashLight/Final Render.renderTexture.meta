@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/FlashLight/Final Render.renderTexture.meta
 guid: 9bc0b13433bf84767ad3a12f617affae
 NativeFormatImporter:
+=======
+guid: c1c57a6e7a68996429dd8b9585fd49b6
+folderAsset: yes
+DefaultImporter:
+>>>>>>> bc6144706eb09719dcd738e9471c90b437e54fea:Assets/Asset/Textures.meta
   externalObjects: {}
   mainObjectFileID: 8400000
   userData: 
