@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SwitchController : MonoBehaviour, IInteractable
 {
+    private Animator animator;
     [SerializeField] private Renderer[] renderers;
     Material[] materials;
 
@@ -11,6 +12,7 @@ public class SwitchController : MonoBehaviour, IInteractable
 
     private void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
         List<Material> totalSharedMaterials = new List<Material>();
 
         for (int i = 0; i < renderers.Length; i++)
@@ -39,6 +41,7 @@ public class SwitchController : MonoBehaviour, IInteractable
 
     private IEnumerator ChangeColor()
     {
+        animator.SetTrigger("Trigger");
         float elapsed = 0f;
 
         while (elapsed < 1f)
