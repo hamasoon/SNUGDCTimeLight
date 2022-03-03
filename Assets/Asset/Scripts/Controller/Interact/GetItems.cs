@@ -34,6 +34,8 @@ public class GetItems : MonoBehaviour, IGetable
                 if (moveDir.magnitude < deletingDist) Destroy(gameObject);
                 transform.position += moveDir * speed * Time.deltaTime;
             }
+            
+            GameManager.SoundManager.PlaySE("GetItem", GetComponent<AudioSource>());
         }
     }
 

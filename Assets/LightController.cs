@@ -37,6 +37,7 @@ public class LightController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             EnableLight();
+            
         }
 
         if (playerController.lightActive)
@@ -71,8 +72,10 @@ public class LightController : MonoBehaviour
 
         spotLight.innerSpotAngle = 0f;
         spotLight.spotAngle = 0f;
+        
+        GameManager.SoundManager.PlaySE("Light", "LightOn");
 
-       DOTween.Kill(doTweenId);
+        DOTween.Kill(doTweenId);
         doTweenId = DOTween.To(() => spotLight.spotAngle, x =>
         {
             spotLight.innerSpotAngle = x;
@@ -84,6 +87,8 @@ public class LightController : MonoBehaviour
     {
         playerController.lightActive = false;
 
+        GameManager.SoundManager.PlaySE("Light", "LightOff");
+        
         DOTween.Kill(doTweenId);
         doTweenId = DOTween.To(() => spotLight.spotAngle, x =>
             {

@@ -51,6 +51,8 @@ public class DoorController : MonoBehaviour, IInteractable
 
             if (AnotherDoor)
                 LeanTween.rotateY(AnotherDoor, origin - (int)pp * 120, seconds).setEase(LeanTweenType.easeInSine);
+            
+            GameManager.SoundManager.PlaySE("DoorOpen", GetComponent<AudioSource>());
         }
         else
         {
@@ -58,11 +60,17 @@ public class DoorController : MonoBehaviour, IInteractable
 
             if (AnotherDoor)
                 LeanTween.rotateY(AnotherDoor, origin, seconds).setEase(LeanTweenType.easeInSine);
+            
+            GameManager.SoundManager.PlaySE("DoorClose", GetComponent<AudioSource>());
         }
         open = !open;
     }
 
-    public void disableLock(){ isLock = !isLock; }
+    public void disableLock()
+    {
+        isLock = !isLock;
+        GameManager.SoundManager.PlaySE("DoorUnlock", gameObject.GetComponent<AudioSource>());
+    }
 
     void OnTriggerEnter(Collider col)//플레이어가 문을 지나가면 자동으로 닫히게
     {   
