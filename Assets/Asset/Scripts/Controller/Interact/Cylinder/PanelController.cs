@@ -15,5 +15,6 @@ public class PanelController : MonoBehaviour, IInteractable
     public void Interact()
     {
         cylinderController.SpinCylinder(gameObject, num);
+        GameManager.SoundManager.PlaySE("PanelMove", GetComponent<AudioSource>());
     }
 }
