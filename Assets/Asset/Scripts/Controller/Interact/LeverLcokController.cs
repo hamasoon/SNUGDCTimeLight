@@ -5,15 +5,14 @@ using UnityEngine;
 public class LeverLcokController : MonoBehaviour
 {
     [SerializeField] private List<LeverController> Ctrls;
-    [SerializeField] private DoorController Door;
-
+    public bool Locked = true;
     public void Check()
     {
         foreach (var ctrl in Ctrls)
         {
             if (!ctrl.Activated) return;
         }
-        
-        Door.disableLock();
+
+        Locked = false;
     }
 }

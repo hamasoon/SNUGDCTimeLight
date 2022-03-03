@@ -57,7 +57,7 @@
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\DoorController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\FocusController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\GetItems.cs" />
-     <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyCardController.cs" />
+     <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyCardPadCtrl.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyPad\KeyPadController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyPad\NumpadController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyPad\UpDownButtonController.cs" />
