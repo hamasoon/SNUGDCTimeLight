@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c9363f58d8f2c498b8680b2997f384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canMove: 1
+  canMove: 0
   canCameraMove: 1
   mySpeed: 5
   vSpeed: 2
@@ -499,6 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb9a39cf15bff747b83ae3890be8fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightTaken: 0
   spotLight: {fileID: 39910415642127524}
   cameraT: {fileID: 1100312719}
 --- !u!1 &6665619642196992236

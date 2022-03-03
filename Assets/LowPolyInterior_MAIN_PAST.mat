@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LowPolyInterior_MAIN
+  m_Name: LowPolyInterior_MAIN_PAST
   m_Shader: {fileID: -6465566751694194690, guid: 78a5711fba4045e47a72187e7d4aae6e,
     type: 3}
   m_ShaderKeywords: 
@@ -289,7 +289,7 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _MainColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadeDirection: {r: 0.2, g: 1, b: 0.1, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
