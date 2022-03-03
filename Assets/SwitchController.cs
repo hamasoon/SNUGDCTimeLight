@@ -41,7 +41,7 @@ public class SwitchController : MonoBehaviour, IInteractable
     {
         float elapsed = 0f;
 
-        while (elapsed <= 1f)
+        while (elapsed < 1f)
         {
             elapsed += Time.deltaTime;
             if (elapsed > 1f) elapsed = 1f;

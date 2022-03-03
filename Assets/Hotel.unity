@@ -4580,9 +4580,15 @@ MonoBehaviour:
     m_keys:
     - Locked
     - Key Locked
+    - Tutorial Interact
+    - Tutorial Light
+    - Tutorial Light Fix
     m_values:
     - It's locked
     - I need a key
+    - Press 'e' to interact
+    - '''Right click'' to use "Timelight"'
+    - '''Left click'' to place "Timelight"'
   subsLocation:
     m_keys:
     - 
