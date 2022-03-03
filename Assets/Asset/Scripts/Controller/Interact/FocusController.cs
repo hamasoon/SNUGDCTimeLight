@@ -9,6 +9,10 @@ public class FocusController : MonoBehaviour, IInteractable
     [SerializeField] private Vector3 loc;
     [SerializeField] private Vector3 rotateAngle;
     [SerializeField, Range(0f, 3.0f)] private float transTime = 1f;
+    //[SerializeField] private bool pastPuzzle = false;
+    private Transform presentRoom;
+    private Transform pastRoom;
+    private Vector3 RoomDist;
     private Camera MainCamera;
     private Vector3 originPos;
     private Vector3 originAngle;
@@ -19,6 +23,10 @@ public class FocusController : MonoBehaviour, IInteractable
     void Start()
     {
         MainCamera = Camera.main;
+        presentRoom = GameObject.Find("PresentRoom").transform;
+        pastRoom = GameObject.Find("PastRoom").transform;
+        RoomDist = presentRoom.position - pastRoom.position;
+        Debug.Log(RoomDist);
     }
 
     void Update()
@@ -34,11 +42,12 @@ public class FocusController : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        StartCoroutine(ClosedIn());
+        StartCoroutine(ClosedIn(RoomDist));
     }
 
-    IEnumerator ClosedIn()
+    IEnumerator ClosedIn(Vector3 dist)
     {
+        Debug.Log("시작");
         originPos = MainCamera.transform.position;
         originAngle = MainCamera.transform.eulerAngles;
 
@@ -50,7 +59,7 @@ public class FocusController : MonoBehaviour, IInteractable
         GameManager.PlayerController.hSpeed = 1f;
         GameManager.PlayerController.vSpeed = 1f;
 
-        Vector3 target = transform.position + loc;
+        Vector3 target = transform.position + loc + dist;
 
         MainCamera.transform.parent.transform.DOMove(target, transTime);
         //Debug.Log(Quaternion.ToEulerAngles(Quaternion.LookRotation(new Vector3(originPos-transform.position))));
