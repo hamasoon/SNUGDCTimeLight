@@ -17,7 +17,7 @@ public class KeyPadController : MonoBehaviour
     {
         if(!waiting)
         {
-            if(count < 3)
+            if(count < text.Length - 1)
             {
                 text[count].text = num.ToString(); 
                 count++;
@@ -30,7 +30,6 @@ public class KeyPadController : MonoBehaviour
                 {
                     waiting = true; //맞았을 경우 고정시키는 용도
                     LookDoor.disableLock();
-                    LookDoor.Interact();
                 }
                 count = 0;
             }
@@ -39,7 +38,7 @@ public class KeyPadController : MonoBehaviour
 
     private bool isCorrect()
     {
-        for(int i=0; i<3; i++)
+        for(int i=0; i<text.Length; i++)
         {
             string t = text[i].text;
             string p = password[i].ToString();
