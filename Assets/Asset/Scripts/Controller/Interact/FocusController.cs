@@ -62,7 +62,6 @@ public class FocusController : MonoBehaviour, IInteractable
         Vector3 target = transform.position + loc + dist;
 
         MainCamera.transform.parent.transform.DOMove(target, transTime);
-        //Debug.Log(Quaternion.ToEulerAngles(Quaternion.LookRotation(new Vector3(originPos-transform.position))));
         MainCamera.transform.parent.transform.DORotate(rotateAngle, transTime);
 
         yield return new WaitForSeconds(transTime+0.5f);
@@ -89,14 +88,15 @@ public class FocusController : MonoBehaviour, IInteractable
         }
 
         MainCamera.transform.parent.transform.DOMove(originPos, transTime);
-        yield return new WaitForSeconds(transTime+0.5f);
         MainCamera.transform.parent.transform.DORotate(originAngle, transTime);
+        
+        yield return new WaitForSeconds(transTime+0.5f);
 
         GameManager.PlayerController.hSpeed = originHSpeed;
         GameManager.PlayerController.vSpeed = originVSpeed;
 
         GameManager.PlayerController.canMove = true;
         GameManager.PlayerController.canCameraMove = true;
-        gameObject.GetComponent<Collider>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = true;
     }
 }
