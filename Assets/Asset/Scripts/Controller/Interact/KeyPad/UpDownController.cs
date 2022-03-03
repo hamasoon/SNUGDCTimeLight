@@ -28,14 +28,17 @@ public class UpDownController : MonoBehaviour
     {
         if(!isClear)
         {
+            Debug.Log(1);
             if (Input[idx] == 0 && ways == -1) return;
             else if (Input[idx] == 9 && ways == 1) return;
+            Debug.Log(1);
 
             Input[idx] += ways;
-
-            Check();
-
             Texts[idx].text = Input[idx].ToString();
+            
+            Check();
+            
+            Debug.Log(Texts[idx]);
         }
     }
 }

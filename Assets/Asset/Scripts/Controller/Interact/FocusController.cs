@@ -10,9 +10,7 @@ public class FocusController : MonoBehaviour, IInteractable
     [SerializeField] private Vector3 rotateAngle;
     [SerializeField, Range(0f, 3.0f)] private float transTime = 1f;
     //[SerializeField] private bool pastPuzzle = false;
-    private Transform presentRoom;
-    private Transform pastRoom;
-    private Vector3 RoomDist;
+    [SerializeField] private Vector3 RoomDist = new Vector3(25, 0, 0);
     private Camera MainCamera;
     private Vector3 originPos;
     private Vector3 originAngle;
@@ -23,9 +21,6 @@ public class FocusController : MonoBehaviour, IInteractable
     void Start()
     {
         MainCamera = Camera.main;
-        presentRoom = GameObject.Find("PresentRoom").transform;
-        pastRoom = GameObject.Find("PastRoom").transform;
-        RoomDist = presentRoom.position - pastRoom.position;
         Debug.Log(RoomDist);
     }
 

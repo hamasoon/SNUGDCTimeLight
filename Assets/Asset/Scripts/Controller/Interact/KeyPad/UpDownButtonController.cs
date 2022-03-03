@@ -23,7 +23,6 @@ public class UpDownButtonController : MonoBehaviour, IInteractable
     {
         if(!isWorking)
         {
-            Debug.Log(1);
             StartCoroutine(ClickButton());
         }
     }

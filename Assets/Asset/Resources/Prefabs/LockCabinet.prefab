@@ -373,6 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56574b6134ac9b94fabd78aa3730c45c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnotherDoor: {fileID: 0}
   isLock: 1
   KeyName: SampleKey
   open: 0

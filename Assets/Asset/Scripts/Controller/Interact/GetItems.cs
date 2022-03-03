@@ -24,15 +24,15 @@ public class GetItems : MonoBehaviour, IGetable
             if (pastItem)
             {
                 Debug.Log(pastTransform.position);
-                Vector3 moveDir = pastTransform.position - transform.position - new Vector3(0, 1.0f, 0);
+                Vector3 moveDir = pastTransform.position - transform.position + new Vector3(0, 1f, 0);
                 if (moveDir.magnitude < deletingDist) Destroy(gameObject);
                 transform.position += moveDir * speed * Time.deltaTime;
             }
             else
             {
-                Vector3 moveDir = playerTransform.localPosition - transform.localPosition;
+                Vector3 moveDir = playerTransform.position - transform.position + new Vector3(0, 1f, 0);
                 if (moveDir.magnitude < deletingDist) Destroy(gameObject);
-                transform.localPosition += moveDir * speed * Time.deltaTime;
+                transform.position += moveDir * speed * Time.deltaTime;
             }
         }
     }
@@ -42,6 +42,7 @@ public class GetItems : MonoBehaviour, IGetable
         if (!isGot)
         {
             isGot = true;
+            Debug.Log(1);
             GetItem();
         }
     }

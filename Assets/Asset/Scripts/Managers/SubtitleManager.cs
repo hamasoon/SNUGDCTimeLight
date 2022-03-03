@@ -8,7 +8,7 @@ public class SubtitleManager : MonoBehaviour
     [SerializeField] StringStringDictionary subtitles = new StringStringDictionary();
     [SerializeField] SerialilzeDicStringVector3 subsLocation = new SerialilzeDicStringVector3();
     [SerializeField] Text text;
-    [SerializeField, Range(0f, 20f)] float fadeTime = 5f; 
+    [SerializeField, Range(0f, 40f)] float fadeTime = 5f; 
     [SerializeField, Range(0, 10f)] float waitingTime = 5f; 
 
     private bool lockSubtitle = false;
