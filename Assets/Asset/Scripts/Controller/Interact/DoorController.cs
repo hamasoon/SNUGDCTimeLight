@@ -11,12 +11,15 @@ public class DoorController : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject AnotherDoor;
     [SerializeField] bool isLock = false;
+    [SerializeField] bool dualLocked = false;
     [SerializeField] string KeyName = "SampleKey";
     [SerializeField] private PP pp = PP.Push;
     private bool isWorking = false;
     public bool open = false;
     public float seconds = 0.7f;
     private float origin;
+
+    public float rotationMultiplier = 1f;
 
     void Awake()
     {
@@ -33,7 +36,7 @@ public class DoorController : MonoBehaviour, IInteractable
         }
         else
         {
-            if (GameManager.Instance.UseItem(KeyName))
+            if (!dualLocked && GameManager.Instance.UseItem(KeyName))
                 disableLock();
             else
                 GameManager.SubtitleManager.showSubtitle("Locked");
@@ -71,9 +74,15 @@ public class DoorController : MonoBehaviour, IInteractable
 
     IEnumerator DoorCorourtine()
     {
-        isWorking = !isWorking;
-        PlayAnimation();
-        yield return new WaitForSeconds(seconds);
-        isWorking = !isWorking;
+        if (!dualLocked || (dualLocked && GameManager.Instance.UseItem(KeyName)))
+        {
+            isWorking = !isWorking;
+            PlayAnimation();
+            yield return new WaitForSeconds(seconds);
+            isWorking = !isWorking;
+        } else
+        {
+            GameManager.SubtitleManager.showSubtitle("Key Locked");
+        }
     }
 }

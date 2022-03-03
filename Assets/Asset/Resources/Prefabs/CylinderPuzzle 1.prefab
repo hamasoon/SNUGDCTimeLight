@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 1336918957206145195}
   - component: {fileID: 1336918957206145196}
   m_Layer: 8
-  m_Name: CylinderPuzzle
+  m_Name: CylinderPuzzle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LookDoor: {fileID: 0}
-  Password: 00000000020000000100000003000000
+  Password: 01000000030000000200000000000000
 --- !u!1 &1336918957285627655
 GameObject:
   m_ObjectHideFlags: 0
