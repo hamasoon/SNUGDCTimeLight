@@ -13,6 +13,8 @@ public class LightController : MonoBehaviour
     private int doTweenId;
     
     private Vector3 cameraPositionOffset;
+
+    public bool lightTaken;
     
     [SerializeField] private Light spotLight;
     [SerializeField] private Transform cameraT;
@@ -34,21 +36,24 @@ public class LightController : MonoBehaviour
 
     public void ManagedUpdate()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (lightTaken)
         {
-            EnableLight();
-        }
-
-        if (playerController.lightActive)
-        {
-            if (Input.GetMouseButtonUp(1))
+            if (Input.GetMouseButtonDown(1))
             {
-                DisableLight();
+                EnableLight();
             }
-        
-            if (Input.GetMouseButtonDown(0))
+
+            if (playerController.lightActive)
             {
-                FixLight();
+                if (Input.GetMouseButtonUp(1))
+                {
+                    DisableLight();
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    FixLight();
+                }
             }
         }
 

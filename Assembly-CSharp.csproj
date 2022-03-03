@@ -131,6 +131,8 @@
     <Compile Include="Assets/Player/PlayerController.cs" />
     <Compile Include="Assets/SwipeLock.cs" />
     <Compile Include="Assets/SwipeLockController.cs" />
+    <Compile Include="Assets/SwitchController.cs" />
+    <Compile Include="Assets/TimeLightController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Package/TextMesh Pro/Shaders/TMPro.cginc" />

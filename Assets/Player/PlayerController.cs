@@ -2,7 +2,7 @@
 
 public class PlayerController : MonoBehaviour
 {
-    public bool canMove = true;
+    public bool canMove = false;
     public bool canCameraMove = true;
     [Range(0, 30)] public float mySpeed = 15f;
     [Range(0, 5)] public float vSpeed = 2f;
@@ -73,8 +73,12 @@ public class PlayerController : MonoBehaviour
             enableBob = input != Vector3.zero;
             CheckMotion();
             ResetMotion();
-            characterController.Move(moveDir * mySpeed * Time.deltaTime);
-            characterController.Move(Physics.gravity);
+
+            if (lightController.lightTaken)
+            {
+                characterController.Move(moveDir * mySpeed * Time.deltaTime);
+                characterController.Move(Physics.gravity);
+            }
         }
 
         lightController.ManagedUpdate();
