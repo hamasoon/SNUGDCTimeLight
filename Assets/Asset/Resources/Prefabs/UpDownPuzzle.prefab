@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f0b9eec28f9fe4aa2f341a6eba11ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Password: 050000000700000006000000
+  Password: 030000000200000007000000
   doorController: {fileID: 0}
   Texts:
   - {fileID: 2256477347141243874}
@@ -949,7 +949,6 @@ MonoBehaviour:
   loc: {x: -0.7, y: 0, z: 0}
   rotateAngle: {x: 0, y: 90, z: 0}
   transTime: 1
-  RoomDist: {x: 0, y: 0, z: 0}
   isFocused: 0
 --- !u!1 &2256477347589421373
 GameObject:
