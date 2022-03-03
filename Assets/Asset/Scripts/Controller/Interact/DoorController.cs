@@ -6,11 +6,14 @@ public class DoorController : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject AnotherDoor;
     [SerializeField] bool isLock = false;
+    [SerializeField] bool dualLocked = false;
     [SerializeField] string KeyName = "SampleKey";
     private bool isWorking = false;
     public bool open = false;
     public float seconds = 0.7f;
     private float origin;
+
+    public float rotationMultiplier = 1f;
 
     void Awake()
     {
@@ -27,7 +30,7 @@ public class DoorController : MonoBehaviour, IInteractable
         }
         else
         {
-            if (GameManager.Instance.UseItem(KeyName))
+            if (!dualLocked && GameManager.Instance.UseItem(KeyName))
                 disableLock();
             else
                 GameManager.SubtitleManager.showSubtitle("Locked");
@@ -38,10 +41,10 @@ public class DoorController : MonoBehaviour, IInteractable
     {
         if(!open)
         {
-            LeanTween.rotateY(gameObject, origin - 120, seconds).setEase(LeanTweenType.easeInSine);
+            LeanTween.rotateY(gameObject, origin - (120 * rotationMultiplier), seconds).setEase(LeanTweenType.easeInSine);
 
             if (AnotherDoor)
-                LeanTween.rotateY(AnotherDoor, origin - 120, seconds).setEase(LeanTweenType.easeInSine);
+                LeanTween.rotateY(AnotherDoor, origin - (120 * rotationMultiplier), seconds).setEase(LeanTweenType.easeInSine);
         }
         else
         {
@@ -65,9 +68,15 @@ public class DoorController : MonoBehaviour, IInteractable
 
     IEnumerator DoorCorourtine()
     {
-        isWorking = !isWorking;
-        PlayAnimation();
-        yield return new WaitForSeconds(seconds);
-        isWorking = !isWorking;
+        if (!dualLocked || (dualLocked && GameManager.Instance.UseItem(KeyName)))
+        {
+            isWorking = !isWorking;
+            PlayAnimation();
+            yield return new WaitForSeconds(seconds);
+            isWorking = !isWorking;
+        } else
+        {
+            GameManager.SubtitleManager.showSubtitle("Key Locked");
+        }
     }
 }
