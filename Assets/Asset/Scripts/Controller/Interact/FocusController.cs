@@ -9,8 +9,7 @@ public class FocusController : MonoBehaviour, IInteractable
     [SerializeField] private Vector3 loc;
     [SerializeField] private Vector3 rotateAngle;
     [SerializeField, Range(0f, 3.0f)] private float transTime = 1f;
-    //[SerializeField] private bool pastPuzzle = false;
-    [SerializeField] private Vector3 RoomDist = new Vector3(25, 0, 0);
+    
     private Camera MainCamera;
     private Vector3 originPos;
     private Vector3 originAngle;
@@ -21,7 +20,6 @@ public class FocusController : MonoBehaviour, IInteractable
     void Start()
     {
         MainCamera = Camera.main;
-        Debug.Log(RoomDist);
     }
 
     void Update()
@@ -37,12 +35,13 @@ public class FocusController : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        StartCoroutine(ClosedIn(RoomDist));
+        if (isFocused) return;
+        
+        StartCoroutine(ClosedIn());
     }
 
-    IEnumerator ClosedIn(Vector3 dist)
+    IEnumerator ClosedIn()
     {
-        Debug.Log("시작");
         originPos = MainCamera.transform.position;
         originAngle = MainCamera.transform.eulerAngles;
 
@@ -54,7 +53,7 @@ public class FocusController : MonoBehaviour, IInteractable
         GameManager.PlayerController.hSpeed = 1f;
         GameManager.PlayerController.vSpeed = 1f;
 
-        Vector3 target = transform.position + loc + dist;
+        Vector3 target = transform.position + loc;
 
         MainCamera.transform.parent.transform.DOMove(target, transTime);
         MainCamera.transform.parent.transform.DORotate(rotateAngle, transTime);

@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class KeyPadController : MonoBehaviour
 {
-    [SerializeField] TextMeshPro[] text = new TextMeshPro[4];
-    [SerializeField] string password = "3812";//비밀번호
+    [SerializeField] TextMeshPro[] text = new TextMeshPro[3];
+    [SerializeField] string password = "381";//비밀번호
     [SerializeField] DoorController LookDoor;
     private int count = 0;
     private bool waiting = false; //DeadLock 방지
@@ -39,7 +39,7 @@ public class KeyPadController : MonoBehaviour
 
     private bool isCorrect()
     {
-        for(int i=0; i<4; i++)
+        for(int i=0; i<3; i++)
         {
             string t = text[i].text;
             string p = password[i].ToString();

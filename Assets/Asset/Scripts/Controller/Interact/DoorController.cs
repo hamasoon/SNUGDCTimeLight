@@ -2,18 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PushOrPull
-{
-    Push = -1, Pull = 1
-}
-
-
 public class DoorController : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject AnotherDoor;
     [SerializeField] bool isLock = false;
     [SerializeField] string KeyName = "SampleKey";
-    [SerializeField] PushOrPull pp = PushOrPull.Push;
     private bool isWorking = false;
     public bool open = false;
     public float seconds = 0.7f;
@@ -34,10 +27,10 @@ public class DoorController : MonoBehaviour, IInteractable
         }
         else
         {
-            if(GameManager.Instance.UseItem(KeyName))
+            if (GameManager.Instance.UseItem(KeyName))
                 disableLock();
             else
-                GameManager.SubtitleManager.showSubtitle("Lock");
+                GameManager.SubtitleManager.showSubtitle("Locked");
         }
     }
 
@@ -45,14 +38,16 @@ public class DoorController : MonoBehaviour, IInteractable
     {
         if(!open)
         {
-            LeanTween.rotateY(gameObject, origin + (int)pp * 90, seconds).setEase(LeanTweenType.easeInSine);
-            if(AnotherDoor != null)
-                LeanTween.rotateY(AnotherDoor, origin + (int)pp * 90, seconds).setEase(LeanTweenType.easeInSine);
+            LeanTween.rotateY(gameObject, origin - 120, seconds).setEase(LeanTweenType.easeInSine);
+
+            if (AnotherDoor)
+                LeanTween.rotateY(AnotherDoor, origin - 120, seconds).setEase(LeanTweenType.easeInSine);
         }
         else
         {
             LeanTween.rotateY(gameObject, origin, seconds).setEase(LeanTweenType.easeInSine);
-            if(AnotherDoor != null)
+
+            if (AnotherDoor)
                 LeanTween.rotateY(AnotherDoor, origin, seconds).setEase(LeanTweenType.easeInSine);
         }
         open = !open;
