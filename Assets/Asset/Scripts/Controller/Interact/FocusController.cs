@@ -35,6 +35,8 @@ public class FocusController : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (isFocused) return;
+        
         StartCoroutine(ClosedIn());
     }
 

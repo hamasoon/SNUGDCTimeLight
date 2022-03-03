@@ -27,10 +27,10 @@ public class DoorController : MonoBehaviour, IInteractable
         }
         else
         {
-            if(GameManager.Instance.UseItem(KeyName))
+            if (GameManager.Instance.UseItem(KeyName))
                 disableLock();
             else
-                GameManager.SubtitleManager.showSubtitle("Lock");
+                GameManager.SubtitleManager.showSubtitle("Locked");
         }
     }
 
@@ -38,13 +38,17 @@ public class DoorController : MonoBehaviour, IInteractable
     {
         if(!open)
         {
-            LeanTween.rotateY(gameObject, origin - 90, seconds).setEase(LeanTweenType.easeInSine);
-            LeanTween.rotateY(AnotherDoor, origin - 90, seconds).setEase(LeanTweenType.easeInSine);
+            LeanTween.rotateY(gameObject, origin - 120, seconds).setEase(LeanTweenType.easeInSine);
+
+            if (AnotherDoor)
+                LeanTween.rotateY(AnotherDoor, origin - 120, seconds).setEase(LeanTweenType.easeInSine);
         }
         else
         {
             LeanTween.rotateY(gameObject, origin, seconds).setEase(LeanTweenType.easeInSine);
-            LeanTween.rotateY(AnotherDoor, origin, seconds).setEase(LeanTweenType.easeInSine);
+
+            if (AnotherDoor)
+                LeanTween.rotateY(AnotherDoor, origin, seconds).setEase(LeanTweenType.easeInSine);
         }
         open = !open;
     }
