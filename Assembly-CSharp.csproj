@@ -69,6 +69,7 @@
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\KeyPad\UpDownController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\LeverController.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Interact\LeverLcokController.cs" />
+     <Compile Include="Assets\Asset\Scripts\Controller\MainMenuCtrl.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Outline\Outline.cs" />
      <Compile Include="Assets\Asset\Scripts\Controller\Outline\OutlineDrawer.cs" />
      <Compile Include="Assets\Asset\Scripts\Managers\GameManager.cs" />
