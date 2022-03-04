@@ -42,6 +42,19 @@ public class SubtitleManager : MonoBehaviour
         }
     }
 
+    public void setTutorial(string key)
+    {
+        if(!lockSubtitle){
+            SetSubtitle(key);
+            StartCoroutine(CoFadeIn(fadeTime));
+        }
+    }
+
+    public void destroyTutorial()
+    {
+        StartCoroutine(CoFadeOut(fadeTime));
+    }
+    
     IEnumerator CoFadeInandOut(float fadeOutTime)
     {
         lockSubtitle = true;
@@ -61,6 +74,40 @@ public class SubtitleManager : MonoBehaviour
 
         yield return new WaitForSeconds(waitingTime);
 
+        while(tempColor.a > 0f){
+            tempColor.a -= Time.deltaTime * fadeOutTime;
+            text.color = tempColor;
+
+            if(tempColor.a <= 0f) tempColor.a = 0f;
+
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        text.color = tempColor;
+        lockSubtitle = false;
+    }
+    
+    IEnumerator CoFadeIn(float fadeOutTime)
+    {
+        lockSubtitle = true;
+        Color tempColor = text.color;
+        while(tempColor.a < 1){
+            tempColor.a += Time.deltaTime * fadeOutTime;
+            text.color = tempColor;
+
+            if(tempColor.a >= 1) 
+            {
+                tempColor.a = 1;
+                text.color = tempColor;   
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+    
+    IEnumerator CoFadeOut(float fadeOutTime)
+    {
+        Color tempColor = text.color;
         while(tempColor.a > 0f){
             tempColor.a -= Time.deltaTime * fadeOutTime;
             text.color = tempColor;

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -50,10 +51,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        GameManager.SubtitleManager.setTutorial("Tutorial Interact");
+    }
+
     private void Update()
     {
         Vector3 input = cameraHolder.transform.right * Input.GetAxisRaw("Horizontal") +
             cameraHolder.transform.forward * Input.GetAxisRaw("Vertical");
+        if (input.magnitude < 0.5) input = Vector3.zero;
         Vector3 moveDir = transform.TransformDirection(input.normalized);
         
         if (canCameraMove)

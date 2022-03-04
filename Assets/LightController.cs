@@ -15,6 +15,9 @@ public class LightController : MonoBehaviour
     private Vector3 cameraPositionOffset;
 
     public bool lightTaken;
+    private bool lighTutorial = false;
+    private bool lightOnTutorial = false;
+    private bool lightFixTutorial = false;
     
     [SerializeField] private Light spotLight;
     [SerializeField] private Transform cameraT;
@@ -38,8 +41,28 @@ public class LightController : MonoBehaviour
     {
         if (lightTaken)
         {
+            if (!lighTutorial)
+            {
+                GameManager.SubtitleManager.destroyTutorial();
+                lighTutorial = true;
+            }
+
+            if (!lightOnTutorial)
+            {
+                GameManager.SubtitleManager.setTutorial("Tutorial Light");
+            }
+            else if (!lightFixTutorial)
+            {
+                GameManager.SubtitleManager.setTutorial("Tutorial Light Fix");
+            }
+            
             if (Input.GetMouseButtonDown(1))
             {
+                if (!lightOnTutorial)
+                {
+                    GameManager.SubtitleManager.destroyTutorial();
+                    lightOnTutorial = true;
+                }
                 EnableLight();
             }
 
@@ -52,6 +75,11 @@ public class LightController : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0))
                 {
+                    if (!lightFixTutorial)
+                    {
+                        GameManager.SubtitleManager.destroyTutorial();
+                        lightFixTutorial = true;
+                    }
                     FixLight();
                 }
             }
